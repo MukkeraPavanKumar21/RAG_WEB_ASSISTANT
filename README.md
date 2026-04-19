@@ -147,7 +147,25 @@ streamlit run main.py
 
 
 ---
+## Example Queries
+### Known Queries
+1. What is bias in artificial intelligence and why is it important?
+2. What is an automobile and what are its main components?
+3. What is the function of a clutch in vehicles?
+4. What is dairy cattle nutrition and why is it important?
+5. What is the role of braking systems in automobiles?
+### Unknown Queries
+1. what is banking?
 
+---
+## Known Limitations
+* Answers depend on quality and relevance of documents
+* Short or vague queries (e.g., "ML") may reduce accuracy
+* No advanced reranking (basic similarity search used)
+* Large documents may increase processing time
+* LLM may occasionally generate slightly generalized responses
+
+---
 ## Conclusion
 
 This project demonstrates a complete **end-to-end RAG system**, integrating document processing, semantic search, and LLM-based answer generation. It highlights practical implementation of modern AI pipelines for real-world applications.
