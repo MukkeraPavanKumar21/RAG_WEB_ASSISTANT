@@ -139,8 +139,13 @@ Question:
 """
 
     response = llm.invoke(prompt)
+    answer_text = response.content.strip()
 
-    # -------- Sources --------
+    #  If no answer → no sources
+    if "i don't know" in answer_text.lower():
+        return answer_text, ""
+
+    #  Otherwise show sources
     seen = set()
     sources = []
 
@@ -150,5 +155,5 @@ Question:
             seen.add(src)
             sources.append(src)
 
-    return response.content.strip(), "\n".join(sources)
+    return answer_text, "\n".join(sources)
 
