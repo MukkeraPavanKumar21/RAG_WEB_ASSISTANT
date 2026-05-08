@@ -25,11 +25,16 @@ vector_store = None
 def initialize_components():
     global llm, vector_store
 
-    if llm is None:
-        llm = ChatGroq(
-            model="llama-3.3-70b-versatile",
-            temperature=0.2
-        )
+    groq_api_key = os.getenv("GROQ_API_KEY")
+
+    if not groq_api_key:
+        raise ValueError("GROQ_API_KEY not found in .env file")
+
+    llm = ChatGroq(
+        groq_api_key=groq_api_key,
+        model="llama-3.3-70b-versatile",
+        temperature=0.2
+    )
 
     if vector_store is None:
         embeddings = HuggingFaceEmbeddings(
